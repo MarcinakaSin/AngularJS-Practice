@@ -1,12 +1,26 @@
 <!doctype html>
-<html ng-app>
+<html ng-app="myApp">
   <head>
     <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.0.7/angular.min.js"></script>
+    <script src="js/main.js"></script>
   </head>
   <body>
     <div>
       <input type="text" ng-model="yourName" placeholder="Enter a name here">
       <h1>Hello, {{ yourName }}!</h1>
     </div>
+    <div ng-controller="MyController">
+    	{{ person.name }}
+    </div>
+    <!--
+    When we bind the ChildController under the ParentController in our view, we can reference the property on the parent scope just as if it were on the ChildController
+    -->
+    <div ng-controller="ParentController">
+	  <div ng-controller="ChildController">
+	    <input type="text" ng-model="person.name" placeholder="Name"></input>
+	    <a ng-click="sayHello()">Say hello</a>
+	  </div>
+	  {{ person }}
+	</div>
   </body>
 </html>
