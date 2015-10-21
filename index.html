@@ -5,13 +5,18 @@
     <script src="js/main.js"></script>
   </head>
   <body>
+
     <div>
       <input type="text" ng-model="yourName" placeholder="Enter a name here">
       <h1>Hello, {{ yourName }}!</h1>
     </div>
+
     <div ng-controller="MyController">
-    	{{ person.name }}
+      <input type="text" ng-model="person.name" placeholder="Enter a name here">
+    	<h5>Hello {{ person.name }}</h5>
+      <h5>{{ clock }}</h5>
     </div>
+
     <!--
     When we bind the ChildController under the ParentController in our view, we can reference the property on the parent scope just as if it were on the ChildController
     -->
@@ -22,5 +27,24 @@
 	  </div>
 	  {{ person }}
 	</div>
+
+  <div ng-controller="DemoController">
+    <h4>The simplest adding machine ever</h4>
+    <button ng-click="add(1)" class="button">Add</button>
+    <button ng-click="subtract(1)" class="button">Subtract</button>
+    <h4>Current count: {{ counter }}</h4>
+  </div>
+
+  <div ng-controller="HTTPPlayerController">
+    Programs:<br />
+    {{ programs }}
+  </div>
+
+	<div ng-controller="PlayerController">
+	  <button ng-click="play()" class="button" ng-show="!playing">Play</button>
+	  <button ng-click="stop()" class="button alert" ng-show="playing">Stop</button>
+	  Playing audio: <b>{{ playing }}</b>
+	</div>
+
   </body>
 </html>
